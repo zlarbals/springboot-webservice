@@ -13,7 +13,11 @@ cache:
     - '$HOME/.gradle'
 
 script: "./gradlew clean build"
-  
+
+#prevent ./gradlew permission denied
+before_install:
+  - chmod +x gradlew
+
 #CI 실행 완료시 메일로 알람
 notifications:
   email:
